@@ -1,0 +1,47 @@
+{
+  "name": "bankist-desktop",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "Bankist helps you keep track of your expenses, analyze your movements and forecast your savings.",
+  "author": "Bankist <bankist@bankist.xyz>",
+  "homepage": "https://bankist.xyz/",
+  "main": "./app.js",
+  "scripts": {
+    "postinstall": "install-app-deps",
+    "start": "npm install && electron ./app",
+    "pack": "build --dir",
+    "dist": "build"
+  },
+  "build": {
+    "appId": "com.bankist.xyz",
+    "dmg": {
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "win": {
+      "target": "NSIS",
+      "icon": "icon.png"
+    }
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "latest",
+    "electron-builder": "latest"
+  }
+}
